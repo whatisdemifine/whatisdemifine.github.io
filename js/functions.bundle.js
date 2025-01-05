@@ -209,9 +209,9 @@ function(e, t) {
                 height: window.innerHeight || c.elRoot.clientHeight
             };
             return c.viewport = e,
-            document.documentElement.style.setProperty("--cnvs-viewport-width", e.width),
-            document.documentElement.style.setProperty("--cnvs-viewport-height", e.height),
-            document.documentElement.style.setProperty("--cnvs-body-height", c.elBody.clientHeight),
+            document.documentElement.style.setProperty("--demi-viewport-width", e.width),
+            document.documentElement.style.setProperty("--demi-viewport-height", e.height),
+            document.documentElement.style.setProperty("--demi-body-height", c.elBody.clientHeight),
             e
         },
         isElement: function(e) {
@@ -978,7 +978,7 @@ function(e, t) {
                 function() {
                     if (!N.getVars.elBody.classList.contains("is-expanded-menu"))
                         return;
-                    var a = getComputedStyle(N.getVars.elHeader).getPropertyValue("--cnvs-primary-menu-submenu-display-speed") || 666;
+                    var a = getComputedStyle(N.getVars.elHeader).getPropertyValue("--demi-primary-menu-submenu-display-speed") || 666;
                     isNaN(a.split("ms")[0]) ? isNaN(a.split("s")[0]) || (a = 1e3 * a.split("s")[0]) : a = a.split("ms")[0],
                     [].slice.call(N.getVars.elPrimaryMenus).filter(function(e) {
                         return !e.matches(".on-click")
@@ -1034,7 +1034,7 @@ function(e, t) {
                     N.getVars.elHeader.classList.contains("full-header") && document.querySelectorAll(".mega-menu:not(.mega-menu-full):not(.mega-menu-small) .mega-menu-content").forEach(function(e) {
                         e.style.width = a + "px"
                     }),
-                    N.getVars.elHeader.classList.contains("floating-header") && (t = getComputedStyle(document.querySelector("#header")).getPropertyValue("--cnvs-header-floating-padding"),
+                    N.getVars.elHeader.classList.contains("floating-header") && (t = getComputedStyle(document.querySelector("#header")).getPropertyValue("--demi-header-floating-padding"),
                     document.querySelectorAll(".mega-menu:not(.mega-menu-full):not(.mega-menu-small) .mega-menu-content").forEach(function(e) {
                         e.style.width = a + 2 * Number(t.split("px")[0]) + "px"
                     }))
@@ -1072,8 +1072,8 @@ function(e, t) {
                 document.addEventListener("click", function(e) {
                     e.target.closest("#page-menu") || t.classList.remove("page-menu-open")
                 }, !1),
-                !(!t.classList.contains("no-sticky") && !t.classList.contains("dots-menu"))) || (i = N.getVars.elHeader.classList.contains("no-sticky") ? 0 : ("false" == N.getVars.elHeader.getAttribute("data-sticky-shrink") ? getComputedStyle(N.getVars.elHeader).getPropertyValue("--cnvs-header-height") : getComputedStyle(N.getVars.elHeader).getPropertyValue("--cnvs-header-height-shrink")).split("px")[0],
-                t.style.setProperty("--cnvs-page-submenu-sticky-offset", i + "px"),
+                !(!t.classList.contains("no-sticky") && !t.classList.contains("dots-menu"))) || (i = N.getVars.elHeader.classList.contains("no-sticky") ? 0 : ("false" == N.getVars.elHeader.getAttribute("data-sticky-shrink") ? getComputedStyle(N.getVars.elHeader).getPropertyValue("--demi-header-height") : getComputedStyle(N.getVars.elHeader).getPropertyValue("--demi-header-height-shrink")).split("px")[0],
+                t.style.setProperty("--demi-page-submenu-sticky-offset", i + "px"),
                 setTimeout(function() {
                     N.getVars.pageMenuOffset = N.offset(t).top - i,
                     q(N.getVars.pageMenuOffset)
@@ -1429,7 +1429,7 @@ function(e, t) {
                             })
                         }, 333),
                         setTimeout(function() {
-                            N.getVars.elWrapper.style.removeProperty("--cnvs-animate-duration")
+                            N.getVars.elWrapper.style.removeProperty("--demi-animate-duration")
                         }, 666)
                     }
                     return n.split(" ").forEach(function(e) {
@@ -1455,14 +1455,14 @@ function(e, t) {
                   , o = o ? (s = !0,
                 Number(o)) : s = !1
                   , u = "2" == l ? '<div class="css3-spinner-flipper"></div>' : "3" == l ? '<div class="css3-spinner-double-bounce1"></div><div class="css3-spinner-double-bounce2"></div>' : "4" == l ? '<div class="css3-spinner-rect1"></div><div class="css3-spinner-rect2"></div><div class="css3-spinner-rect3"></div><div class="css3-spinner-rect4"></div><div class="css3-spinner-rect5"></div>' : "5" == l ? '<div class="css3-spinner-cube1"></div><div class="css3-spinner-cube2"></div>' : "6" == l ? '<div class="css3-spinner-scaler"></div>' : "7" == l ? '<div class="css3-spinner-grid-pulse"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>' : "8" == l ? '<div class="css3-spinner-clip-rotate"><div></div></div>' : "9" == l ? '<div class="css3-spinner-ball-rotate"><div></div><div></div><div></div></div>' : "10" == l ? '<div class="css3-spinner-zig-zag"><div></div><div></div></div>' : "11" == l ? '<div class="css3-spinner-triangle-path"><div></div><div></div><div></div></div>' : "12" == l ? '<div class="css3-spinner-ball-scale-multiple"><div></div><div></div><div></div></div>' : "13" == l ? '<div class="css3-spinner-ball-pulse-sync"><div></div><div></div><div></div></div>' : "14" == l ? '<div class="css3-spinner-scale-ripple"><div></div><div></div><div></div></div>' : '<div class="css3-spinner-bounce1"></div><div class="css3-spinner-bounce2"></div><div class="css3-spinner-bounce3"></div>';
-                d = '<div class="css3-spinner"' + (p = c ? "theme" == c ? ' style="--cnvs-loader-color:var(--cnvs-themecolor);"' : ' style="--cnvs-loader-color:' + c + ';"' : p) + ">" + (d = d || u) + "</div>",
+                d = '<div class="css3-spinner"' + (p = c ? "theme" == c ? ' style="--demi-loader-color:var(--demi-themecolor);"' : ' style="--demi-loader-color:' + c + ';"' : p) + ">" + (d = d || u) + "</div>",
                 "fadeIn" == n ? N.getVars.elWrapper.classList.add("op-1") : N.getVars.elWrapper.classList.add("not-animated"),
                 i || ((l = document.createElement("div")).classList.add("page-transition-wrap"),
                 l.innerHTML = d,
                 a.prepend(l),
                 i = document.querySelector(".page-transition-wrap")),
-                r && (N.getVars.elWrapper.style.setProperty("--cnvs-animate-duration", Number(r) + "ms"),
-                "fadeIn" == n) && i.style.setProperty("--cnvs-animate-duration", Number(r) + "ms");
+                r && (N.getVars.elWrapper.style.setProperty("--demi-animate-duration", Number(r) + "ms"),
+                "fadeIn" == n) && i.style.setProperty("--demi-animate-duration", Number(r) + "ms");
                 "complete" === document.readyState && t(),
                 s && setTimeout(t, o),
                 window.addEventListener("load", function() {
@@ -2588,7 +2588,7 @@ function(e, t) {
                           , e = a.getAttribute("data-speed") || 1200
                           , n = a.querySelector(".skill-progress-percent")
                           , e = Number(e) + "ms";
-                        n.style.setProperty("--cnvs-progress-speed", e),
+                        n.style.setProperty("--demi-progress-speed", e),
                         new IntersectionObserver(function(e, t) {
                             e.forEach(function(e) {
                                 e.isIntersecting && (n.classList.contains("skill-animated") || (S.counter(a.querySelector(".counter")),
@@ -4033,10 +4033,10 @@ function(e, t) {
                             d.width = t,
                             d.height = a,
                             d.offset = i,
-                            ("true" == r || e.classList.contains("parallax") && "horizontal" == e.getAttribute("data-parallax-direction")) && e.style.setProperty("--cnvs-scroll-width", d.width),
-                            ("true" == s || e.classList.contains("parallax") && "horizontal" != e.getAttribute("data-parallax-direction")) && e.style.setProperty("--cnvs-scroll-height", d.height),
-                            "true" == o && e.style.setProperty("--cnvs-scroll-offset", d.offset),
-                            isNaN(c) || e.style.setProperty("--cnvs-parallax-ratio", c),
+                            ("true" == r || e.classList.contains("parallax") && "horizontal" == e.getAttribute("data-parallax-direction")) && e.style.setProperty("--demi-scroll-width", d.width),
+                            ("true" == s || e.classList.contains("parallax") && "horizontal" != e.getAttribute("data-parallax-direction")) && e.style.setProperty("--demi-scroll-height", d.height),
+                            "true" == o && e.style.setProperty("--demi-scroll-offset", d.offset),
+                            isNaN(c) || e.style.setProperty("--demi-parallax-ratio", c),
                             H(d),
                             g.push(d),
                             p.observe(e)
@@ -4222,10 +4222,10 @@ function(e, t) {
             0 < r ? i.elem.classList.add("scroll-detect-inview") : i.elem.classList.remove("scroll-detect-inview"),
             0 < s && s < 1 ? i.elem.classList.add("scroll-detect-inview-start") : i.elem.classList.remove("scroll-detect-inview-start"),
             0 < o && o < 1 ? i.elem.classList.add("scroll-detect-inview-end") : i.elem.classList.remove("scroll-detect-inview-end"),
-            i.elem.style.setProperty("--cnvs-scroll-percent", n),
-            i.elem.style.setProperty("--cnvs-scroll-ratio", r),
-            i.elem.style.setProperty("--cnvs-scroll-start", s),
-            i.elem.style.setProperty("--cnvs-scroll-end", o)
+            i.elem.style.setProperty("--demi-scroll-percent", n),
+            i.elem.style.setProperty("--demi-scroll-ratio", r),
+            i.elem.style.setProperty("--demi-scroll-start", s),
+            i.elem.style.setProperty("--demi-scroll-end", o)
         })
     }
     function F() {
@@ -4250,7 +4250,7 @@ function(e, t) {
         i(a(e).split(""), t, "")) : (t = "span",
         i(a(e).split(" "), t, " ")),
         e.querySelectorAll("span")?.forEach(function(e, t) {
-            e.style.setProperty("--cnvs-split-index", t + 1)
+            e.style.setProperty("--demi-split-index", t + 1)
         })
     }
     function k(e, t=!1, a=!1) {
